@@ -43,8 +43,7 @@ pinia.use(piniaPluginPersistedstate);
 const app = createApp(App)
   .use(IonicVue)
   .use(router)
-  .use(pinia)
-  /*.use(PasswordChecker);*/
+  .use(pinia);
 
 router.isReady().then(() => {
   app.mount('#app');

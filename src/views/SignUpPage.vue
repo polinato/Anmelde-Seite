@@ -7,7 +7,8 @@
     </ion-header>
 
     <ion-content :fullscreen="true">
-      <ion-grid class="form-container ion-justify-content-center">
+      <ion-card class="form-container ion-justify-content-center ion-margin-top">
+      <ion-grid>
         <ion-row class="">
           <ion-col>
             <h1 class="ion-padding">Create account</h1>
@@ -15,7 +16,7 @@
         </ion-row>
         <ion-row>
           <ion-col>
-            <form>  
+            <form @submit.prevent="signUp">  
               <ion-input 
                 class="input-field" 
                 v-model="newUser.firstName"
@@ -52,25 +53,26 @@
                 :type="passwordType"
                 required
                 minlength="8">  
-              <ion-button 
-                class="password-show-hide-button" 
-                id="show-hide" 
-                fill="clear" 
-                aria-label="Show/hide" 
-                @click="togglePasswordVisability">
-                <ion-icon :icon="eyeIcon" aria-hidden="true"></ion-icon>
-              </ion-button>
+                <ion-button 
+                  class="password-show-hide-button" 
+                  id="show-hide" 
+                  fill="clear" 
+                  aria-label="Show/hide" 
+                  @click="togglePasswordVisability">
+                  <ion-icon :icon="eyeIcon" aria-hidden="true"></ion-icon>
+                </ion-button>
               </ion-input>
               <ion-button 
                 class="sign-up-button ion-justify-content-center ion-margin-top" 
                 fill="solid"
-                @click="signUp"> 
+                type="submit"> 
                 Sign up 
               </ion-button>
             </form>
           </ion-col>
         </ion-row>
       </ion-grid>
+      </ion-card>
     </ion-content>
   </ion-page>
 </template>
@@ -82,6 +84,7 @@
     IonToolbar, 
     IonTitle, 
     IonContent, 
+    IonCard,
     IonGrid, 
     IonRow, 
     IonCol, 
@@ -100,14 +103,15 @@
       IonToolbar, 
       IonTitle, 
       IonContent, 
+      IonCard,
       IonGrid, 
       IonRow, 
       IonCol, 
       IonInput, 
       IonButton, 
-      IonIcon
+      IonIcon,
     },
-
+    
     setup() {
 
       const isPasswordVisible = ref(false);
