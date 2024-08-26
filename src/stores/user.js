@@ -4,7 +4,7 @@ export const useUserStore = defineStore('user', {
     state: () => ({
         users: []
     }),
-    
+    persist: true,
     actions: {
         addUser (firstName, secondName, email, password) {
             const newUser = {
