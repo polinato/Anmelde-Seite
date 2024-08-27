@@ -1,0 +1,7 @@
+{
+  "name": "Anmelde-Seite",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
